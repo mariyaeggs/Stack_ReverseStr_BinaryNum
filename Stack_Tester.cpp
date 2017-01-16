@@ -114,4 +114,41 @@ void input_user_binary(int number, Stack & stack_of_remainders)
       number /=2;
    }
 }
+/*--------------------- OUTPUT BEGIN ---------------------
+
+
+
+--------------------**** Run 1 ****----------------------
+
+----------------------- Lab Part A -----------------------
+Stack created. Empty? true
+Enter a string => csumb
+        You entered CSUMB (Letters)
+Reverse is BMUSC
+
+
+----------------------- Lab Part B -----------------------
+Enter a number: 5
+Decimal: 5
+Binary: 101
+
+
+
+--------------------**** Run 2 ****----------------------
+
+----------------------- Lab Part A -----------------------
+Stack created. Empty? true
+Enter a string => psuf
+You entered PSUF (Letters)
+Reverse is FUSP
+
+----------------------- Lab Part B -----------------------
+Enter a number: 26
+Decimal: 26
+Binary: 11010
+
+
+
+
+//--------------------- OUTPUT END ---------------------*/
 
