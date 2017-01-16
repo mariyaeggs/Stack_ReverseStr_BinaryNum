@@ -1,6 +1,6 @@
 //----- Stack.cpp -----
 #include <iostream>
-#include <sstream>
+#include <cstdio>
 using namespace std;
 
 #include "Stack.h"
@@ -16,6 +16,7 @@ using namespace std;
  * @author Mariya Eggensperger
 */
 void input_user_str(string input, Stack & s);
+void input_user_binary(int position, Stack & s);
 
 int main() {
 
@@ -24,10 +25,18 @@ int main() {
     * and reverse it using the stack.*/
 
    Stack s;
+   Stack stack_of_remainders;
+
+   cout << endl;
+
+   cout << "----------------------- Lab Part A -----------------------";
    cout << "\nStack created. Empty? " << boolalpha << s.empty() << endl;
 
    char user_str[STACK_CAPACITY];
    string reverse_str = ""; // Stores user input and reverses
+   char binary_rep[STACK_CAPACITY];
+   unsigned number;
+
    cout << "Enter a string => ";
    cin.getline(user_str, STACK_CAPACITY);
    for (int i = 0; i < STACK_CAPACITY; i++) { // Loop through user input
@@ -51,14 +60,51 @@ int main() {
       puts(" (Symbols)");
       exit(1); // Terminate program
    }
+
    /*Lab Exercise Part b)
     * The program can convert a positive integer
     * to a binary representation.*/
-}
 
-void input_user_str(string input, Stack &s) {
-   for (char user_char : input) {
-      s.push(user_char);
+   cout << endl;
+   cout << "----------------------- Lab Part B -----------------------";
+   do
+   {
+      cout << "\nEnter a number: ";
+      cin >> number;
+      if(number<=0)
+      {
+         cout << "\n(Invalid integer input.)";
+      }
+   }
+   while(number<=0);
+   {
+      cout << "Decimal: " << number;
+
+      input_user_binary(number, stack_of_remainders);
+      cout << "\nBinary: ";
+      stack_of_remainders.display(cout);
+      cout << endl;
    }
 
 }
+// Adds user input into temp string storage
+void input_user_str(string input, Stack &s)
+{
+   for (char user_char : input)
+   {
+      s.push(user_char);
+   }
+}
+// Adds user int to temp storage
+void input_user_binary(int number, Stack & stack_of_remainders)
+{
+   unsigned remainder;
+      while(number!=0)
+      {
+         remainder = number % 2;
+         stack_of_remainders.push(remainder);
+         number /=2;
+      }
+
+}
+
