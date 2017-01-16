@@ -18,7 +18,8 @@ using namespace std;
 void input_user_str(string input, Stack & s);
 void input_user_binary(int position, Stack & s);
 
-int main() {
+int main()
+{
 
    /*Lab Exercise Part a)
     * The program can read a sequence of characters
@@ -34,26 +35,29 @@ int main() {
 
    char user_str[STACK_CAPACITY];
    string reverse_str = ""; // Stores user input and reverses
-   char binary_rep[STACK_CAPACITY];
-   unsigned number;
 
    cout << "Enter a string => ";
    cin.getline(user_str, STACK_CAPACITY);
-   for (int i = 0; i < STACK_CAPACITY; i++) { // Loop through user input
+   for (int i = 0; i < STACK_CAPACITY; i++)
+   { // Loop through user input
       user_str[i] = toupper(user_str[i]); // Transform user input to uppercase letters
    }
    cout << "You entered " << user_str;
-   if (isalpha(( char ) *user_str)) {
+   if (isalpha(( char ) *user_str))
+   {
       puts(" (Letters)");
       //Call on input_user_str function to store new input
       input_user_str(user_str, s);
-      while (!s.empty()) {
+      while (!s.empty())
+      {
          reverse_str += s.top();
          s.pop();
       }
       cout << "Reverse is " << reverse_str;
       cout << endl;
-   } else if (isdigit(( char ) *user_str)) {
+   }
+   else if (isdigit(( char ) *user_str))
+   {
       puts(" (Digits)");
       exit(1); // Terminate program
    } else {
@@ -64,6 +68,9 @@ int main() {
    /*Lab Exercise Part b)
     * The program can convert a positive integer
     * to a binary representation.*/
+
+   char binary_rep[STACK_CAPACITY];
+   unsigned number;
 
    cout << endl;
    cout << "----------------------- Lab Part B -----------------------";
@@ -99,12 +106,11 @@ void input_user_str(string input, Stack &s)
 void input_user_binary(int number, Stack & stack_of_remainders)
 {
    unsigned remainder;
-      while(number!=0)
-      {
-         remainder = number % 2;
-         stack_of_remainders.push(remainder);
-         number /=2;
-      }
-
+   while(number!=0)
+   {
+      remainder = number % 2;
+      stack_of_remainders.push(remainder);
+      number /=2;
+   }
 }
 
