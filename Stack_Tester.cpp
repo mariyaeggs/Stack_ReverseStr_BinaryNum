@@ -82,6 +82,7 @@ int main()
       if(number<=0)
       {
          cout << "\n(Invalid integer input.)";
+         exit(1);
       }
    }
    while(number<=0);
