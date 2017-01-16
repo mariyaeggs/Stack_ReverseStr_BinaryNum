@@ -60,7 +60,8 @@ int main()
    {
       puts(" (Digits)");
       exit(1); // Terminate program
-   } else {
+   } else
+   {
       puts(" (Symbols)");
       exit(1); // Terminate program
    }
