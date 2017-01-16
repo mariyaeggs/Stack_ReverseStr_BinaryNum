@@ -77,6 +77,8 @@ public:
           execution allowed to proceed.
      -----------------------------------------------------------------------*/
 
+    static int countSubStr(char txt_str[]);
+
 private:
     /***** Data Members *****/
     StackElement myArray[STACK_CAPACITY];

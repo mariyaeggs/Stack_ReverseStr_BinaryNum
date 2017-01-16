@@ -1,5 +1,6 @@
 //----- Stack.cpp -----
 #include <iostream>
+#include <sstream>
 using namespace std;
 
 #include "Stack.h"
@@ -24,27 +25,48 @@ int main() {
    Stack s;
    cout << "\nStack created. Empty? " << boolalpha << s.empty() << endl;
 
-   string user_str;
-   string reverse_str = ""; // Stores user string input
-
-   cout << "\nEnter a string of characters => ";
-   getline(cin, user_str);
-   cout << endl;
-   cout << "You entered " + user_str << endl;
-
-   // Call on input_user_str function to store new input
-   input_user_str(user_str, s);
-
-   while (!s.empty()) {
-      reverse_str += s.top();
-      s.pop();
+   char user_str[STACK_CAPACITY];
+   string temp_string;
+   string reverse_str = ""; // Stores user input and reverses
+   cout << "Enter a string => ";
+   cin.getline(user_str, STACK_CAPACITY);
+   for (int i=0; i<STACK_CAPACITY; i++){ // Loop through text_string
+      user_str[i] = toupper(user_str[i]); // Transform user input to uppercase letters
    }
-   cout << "Reverse is " << reverse_str;
-   cout << endl;
+   cout <<"You entered "<< user_str;
+   if (isalpha(( char ) *user_str)) {
+      puts(" (Letters)");
+   } else if (isdigit(( char ) *user_str)) {
+      puts(" (Digits)");
+      exit(1); // Terminate program
+   } else {
+      puts(" (Symbols)");
+      exit(1); // Terminate program
+   }
 
-   /*Lab Exercise Part b)
-    * The program can read a sequence of characters
-    * and reverse it using the stack.*/
+   return 0;
+//   string user_str;
+//   string reverse_str = ""; // Stores user string input
+//
+//   cout << "\nEnter a string of characters => ";
+//   getline(cin, user_str);
+//   cout << endl;
+//   cout << "TO UPPER " << toupper(user_str);
+//   cout << "You entered " + user_str << endl;
+//
+//   // Call on input_user_str function to store new input
+//   input_user_str(user_str, s);
+//
+//   while (!s.empty()) {
+//      reverse_str += s.top();
+//      s.pop();
+//   }
+//   cout << "Reverse is " << reverse_str;
+//   cout << endl;
+//
+//   /*Lab Exercise Part b)
+//    * The program can read a sequence of characters
+//    * and reverse it using the stack.*/
 
 }
 void input_user_str(string input, Stack & s) {
